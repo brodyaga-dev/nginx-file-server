@@ -1,8 +1,17 @@
-Image nginx as file server
+# Nginx as file server
 
-## Get default config Nginx 1.9
+If you need to quickly share a file on a remote server, using a link, you can run nginx as file server.
+
 ```
-> docker-compose -f docker-compose-default.yml up -d
-> docker-compose -f docker-compose-default.yml exec nginx bash
-> docker-compose -f docker-compose-default.yml down
+# edit docker-compose.yml
+> docker-compose build
+> docker-compose up -d
+```
+
+## Get default config Nginx 1.19
+```
+> docker run --name tmp-nginx-container -d nginx:1.19
+> docker cp tmp-nginx-container:/etc/nginx/nginx.conf ./nginx.distrib.conf
+> docker cp tmp-nginx-container:/etc/nginx/conf.d/default.conf ./default.conf
+> docker rm -f tmp-nginx-container
 ```

@@ -1,6 +1,0 @@
-version: "3.9"
-services:
-    nginx:
-        image: nginx:1.19
-        volumes:
-            - ./tmp/etc_nginx:/etc/nginx
